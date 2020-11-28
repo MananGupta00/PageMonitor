@@ -1,4 +1,6 @@
 # PageMonitor
-This is the First module, that is monitor. It still has an error which would only let addSession URL to prevail because of "request.getURL" method used to add an attribute in a session.
-If you cannot resolve it or want updated module, contact me.
-email: manan.gupta.cs.2018@miet.ac.in
+### This war file contains 2 modules:
+  1. Page monitoring (stores time and user data)
+  2. Recommendation analysis by time
+  
+Coming Soon Module: 3. Personalised recommendation
