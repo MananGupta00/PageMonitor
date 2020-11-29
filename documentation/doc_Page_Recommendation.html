@@ -1,0 +1,176 @@
+<html>
+  <head></head>
+  <body>
+    1 page:<br /><br />
+    <hr />
+    <b>Introduction:</b> <br /><br />
+    Recommendation engines are basically information filtering tools that use
+    algorithms and data to recommend the most relevant items to a user in a
+    given context.<br />
+    Like some content, a product, or even a person. Recommendations can be
+    powered by aggregate data, which determines the relevance of a certain item
+    in relation to a given context, or user specific data for personalized
+    recommendations.<br /><br />
+    <b>1. History</b><br /><br />
+    Earlier, collaborative filtering has been used successfully in a number of
+    different applications such as recommending web pages, movies, articles and
+    products. Since, collaborative filtering has some major limitations,
+    researchers investigated to use Web mining techniques for product
+    recommendation.<br />
+    Web usage mining is the process of applying data mining techniques to the
+    discovery of behavior or patterns from web data. The pattern discovery tasks
+    include the discovery of association rules, sequential patterns, usage
+    clusters, page clusters, user classifications or any other pattern discovery
+    method.<br /><br />
+
+    <b>2. Actual recommendation not fake feedback<br /></b>
+    Major quality of a recommendation system is that it should avoid fake inputs
+    for the algorithm in predicion. In case of comparitively less number of
+    inputs, fake inputs can prove to be dangerous. for example: google ratings
+    for a nearby place.<br />
+    Recommendation systems like review-based or click-based models suffer this
+    loss greatly.<br /><br />
+    <b>3. Advantages</b>
+    <ul>
+      <li>
+        Using a good recommendation model gives the website an upper hand in
+        improving its UX (user-experience).<br />
+      </li>
+      <li>
+        This is a time-based model with predefined time-limits and hence avoids
+        fake inputs before processing further.<br />
+      </li>
+      <li>
+        Ability to analyse small as well as large data sets, gives the model an
+        advantage over most content and user based models.
+      </li>
+      <li>
+        Quicker processing ability of the model, helps the host to take least
+        CPU time, avoiding server crashes in case of low resources and gives
+        better website performance.
+      </li>
+    </ul>
+
+    <h3>Title:</h3>
+    <hr />
+    2 page:<br />
+    <h3>1. Types of models: <br /></h3>
+    Most existing recommender systems use collaborative filtering or
+    content-based methods or hybrid methods that combine both techniques.<br />
+    Some of such models are:-
+    <ul>
+      <li>
+        <b>Review-Based model :</b> It takes reviews from the user about the
+        product/content (in form of stars or marks or text) and analyses on the
+        basis of this review to recommend this product/content or not.
+      </li>
+      <li>
+        <b>Click-based model :</b> It monitors the clicks made by a user on the
+        page that holds the content or product to analyse and recommend this
+        page accordingly.
+      </li>
+      <li>
+        <b>Basket-analysis model :</b> It is basically 'who bought this, also
+        bought this' type of model. This means, if most of some people were
+        interested in multiple products/contents (maybe category), and a new
+        user navigates to one of those products/contents, the system recommends
+        him/her those multiple products too.
+      </li>
+    </ul>
+    <b>2. Disadvantages of these models<br /><br /></b>
+    Collaborative filtering methods like <b>Review models</b> requires explicit
+    and large number of user ratings for similar products, while the number of
+    ratings ussually obtained is very small compared to the number of ratings
+    that need to predict the recommendation. <br />Therefore, collaborative
+    filtering based recommendations cannot accurately identify the products to
+    recommend.<br /><br />
+    <b>Click-based</b> models, (like google ads for calculating monetisation)
+    are often misleading and sometimes provide false inputs when user mistakenly
+    clicks around, or if some content requires more clicking.<br />
+    Fake inputs are also an headache for such models like putting wrong reviews
+    or clicking around too much on some product/content<br /><br />
+    Algorithms to find the similar customers/products/content like
+    <b>Basket-analysis</b>, usually require large number of user data, excellent
+    computation environment and very long computation time that too grows
+    linearly with both the number of customers and the number of
+    products/content. <br />
+    Also these models need large memory to store and maintain relative data (for
+    each user mostly). Such heavy models cannot function in low resource
+    environments.<br /><br />
+
+    <b>3. Advantages over these models<br /><br /></b>
+    This system has some basic advantages over others because of its unique
+    features like time-monitoring, detecting and excluding false inputs,
+    data-time management.
+    <ul>
+      <li>
+        User doesnt need to manually input any data. Hence, avoids any kind of
+        ambiguity or false inputs. Moreover, it supports website's UX for
+        inputs.
+      </li>
+      <li>
+        Doesn't require qualities of the content/product, hence adding or
+        removing some content/product(s) is easy.
+      </li>
+      <li>
+        Works good on both small and large amounts of data. Hence, applicable to
+        small/local websites.
+      </li>
+      <li>
+        Produces less number of files, improving time and space complexity of
+        overall system.
+      </li>
+      <li>
+        Doesn't require any kind of log in, unlike most of the hybrid systems.
+      </li>
+    </ul>
+    <hr />
+    3 page:
+    <h3>1. Design and implementaion of recomendation model</h3>
+    <br />
+    This model is implemented on Java by using servlets.<br />
+    It mainly consists of two modules:
+    <ol>
+      <li>
+        <b>Page Monitor:</b> This module monitors the time elapsed by user on
+        the client side of a web page.
+        <ul>
+          <li>
+            It excludes the time in which user didnt actually see the page
+            (navigated to other tab or minimized etc.).
+          </li>
+          <li>
+            It checks if time elapsed is not too much than it should have been
+            (for avoiding fake or false inputs).
+          </li>
+          <li>It stores the valid and optimised data for next module.</li>
+        </ul>
+      </li>
+      <li>
+        <b>Recommendation Analyser(by time): </b> This module produces organised
+        list of recommendable pages.
+        <ul>
+          <li>
+            It reads previous recommendation data and new data stored by the
+            first module(Page Monitor). And clears all the data in file produced
+            by first module.
+          </li>
+          <li>
+            It analyses data based on its previous experience as well as new
+            data and sorts it in decreasing order of time spent on each page.
+          </li>
+          <li>
+            It stores the recommended pages their data(time spent) in organised
+            manner for website or future updations.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <b>1.1 Diagram: flow chart<br /></b>
+    1.1.1 Explaining daigram<br />
+    <hr />
+    <b>1.2 Algorthim used:<br /></b>
+    <h3>2 Conclusion: no log in required, genuine recommendation.</h3>
+    <hr />
+  </body>
+</html>
